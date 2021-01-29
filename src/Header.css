@@ -1,8 +1,12 @@
-.Nav-bar {
+.Header {
+  background-color: #282c34;
+}
+
+.Header-bar {
   display: flex;
   flex-direction: row;
 }
 
-.Nav-li {
+.Header-li {
   text-decoration: none;
 }

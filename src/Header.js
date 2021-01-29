@@ -2,12 +2,12 @@ import './Header';
 
 const Header = () => {
   return (
-    <nav>
-      <ul className="Nav-bar">
-        <li className="Nav-li">
+    <nav className="Header">
+      <ul className="Header-bar">
+        <li className="Header-li">
           <a href="#">Home</a>
         </li>
-        <li className="Nav-li">
+        <li className="Header-li">
           <a
             href="https://reactjs.org"
             target="_blank"
@@ -16,7 +16,7 @@ const Header = () => {
             Learn React
           </a>
         </li>
-        <li className="Nav-li">
+        <li className="Header-li">
           <a href="#">About</a>
         </li>
       </ul>
