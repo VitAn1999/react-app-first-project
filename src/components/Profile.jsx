@@ -25,8 +25,11 @@ const Profile = () => {
       </div>
 
       <div className="content__post">
-        <h3 className="content__post-title">My posts</h3>
-        <input type="text" className="content__post-input" />
+        <label className="content__post-title" for="input-post">
+          My posts
+        </label>
+        <input type="text" id="input-post" className="content__post-input" />
+        <button>Public post</button>
         <article className="content__my-post">Post #1</article>
         <article className="content__my-post">Post #2</article>
       </div>
