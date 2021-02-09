@@ -1,29 +1,34 @@
+import classes from './Navbar.module.css';
+
 const Navbar = () => {
   return (
-    <aside className="nav-bar">
-      <ul className="nav-bar__list">
-        <li className="nav-bar__elem">
-          <a href="#" className="nav-bar__link">
+    <aside className={classes['nav-bar']}>
+      <ul className={classes['nav-bar__list']}>
+        <li className={classes['nav-bar__elem']}>
+          <a
+            href="#"
+            className={`${classes['nav-bar__link']} ${classes.active}`}
+          >
             Profile
           </a>
         </li>
-        <li className="nav-bar__elem">
-          <a href="#" className="nav-bar__link">
+        <li className={classes['nav-bar__elem']}>
+          <a href="#" className={classes['nav-bar__link']}>
             Messages
           </a>
         </li>
-        <li className="nav-bar__elem">
-          <a href="#" className="nav-bar__link">
+        <li className={classes['nav-bar__elem']}>
+          <a href="#" className={classes['nav-bar__link']}>
             News
           </a>
         </li>
-        <li className="nav-bar__elem">
-          <a href="#" className="nav-bar__link">
+        <li className={classes['nav-bar__elem']}>
+          <a href="#" className={classes['nav-bar__link']}>
             Music
           </a>
         </li>
-        <li className="nav-bar__elem_setting">
-          <a href="#" className="nav-bar__link">
+        <li className={classes['nav-bar__elem_setting']}>
+          <a href="#" className={classes['nav-bar__link']}>
             Settings
           </a>
         </li>

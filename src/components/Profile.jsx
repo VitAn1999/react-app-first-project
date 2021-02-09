@@ -1,37 +1,52 @@
+import classes from './Profile.module.css';
+
 const Profile = () => {
   return (
-    <main className="content">
-      <div className="content__image-wrapper">
+    <main className={classes.content}>
+      <div className={classes['content__image-wrapper']}>
         <img
           src="https://klike.net/uploads/posts/2019-01/1548057229_3.jpg"
           alt="обои"
-          className="content__image"
+          className={classes.content__image}
         />
       </div>
 
       <img
         src="https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg"
         alt="аватар"
-        className="content__photo"
+        className={classes.content__photo}
       />
-      <div className="content__title">
-        <p className="content__name">Name Surname</p>
-        <ul className="content__about">
-          <li className="content__about-prop">City:</li>
-          <li className="content__about-prop">Country:</li>
-          <li className="content__about-prop">Job:</li>
-          <li className="content__about-prop">Telephone:</li>
+      <div className={classes.content__title}>
+        <p className={classes.content__name}>Name Surname</p>
+        <ul className={classes.content__about}>
+          <li className={classes['content__about-prop']}>City:</li>
+          <li className={classes['content__about-prop']}>Country:</li>
+          <li className={classes['content__about-prop']}>Job:</li>
+          <li className={classes['content__about-prop']}>Telephone:</li>
         </ul>
       </div>
 
-      <div className="content__post">
-        <label className="content__post-title" for="input-post">
-          My posts
-        </label>
-        <input type="text" id="input-post" className="content__post-input" />
-        <button>Public post</button>
-        <article className="content__my-post">Post #1</article>
-        <article className="content__my-post">Post #2</article>
+      <div className={classes.content__post}>
+        <form class={classes.content__form}>
+          <label className={classes['content__post-title']} for="input-post">
+            My post:
+          </label>
+          <textarea
+            id="input-post"
+            name="input-post"
+            rows="4"
+            cols="50"
+            placeholder="Writting something..."
+            className={classes['content__post-input']}
+          />
+          <button type="submit" className={classes['content__btn-public']}>
+            Public post
+          </button>
+        </form>
+        <div class={classes.content__articles}>
+          <article className={classes['content__my-post']}>Post #1</article>
+          <article className={classes['content__my-post']}>Post #2</article>
+        </div>
       </div>
     </main>
   );
