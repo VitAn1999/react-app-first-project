@@ -20,10 +20,10 @@ const MyPosts = () => {
           Public post
         </button>
       </form>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <Post text="какулька" count="5" />
+      <Post text="Бэтмен" count="12" />
+      <Post text="какулька" count="8" />
+      <Post text="Николас Кейдж" count="15" />
     </div>
   );
 };

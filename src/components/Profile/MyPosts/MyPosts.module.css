@@ -44,6 +44,7 @@
   font-size: 1em;
   background-color: teal;
   border: none;
+  border-radius: 3px;
   color: azure;
   transition: all 0.2s ease-in;
 }
