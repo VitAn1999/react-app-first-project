@@ -1,4 +1,5 @@
 import classes from './Profile.module.css';
+import MyPosts from './MyPosts/MyPosts';
 
 const Profile = () => {
   return (
@@ -25,29 +26,7 @@ const Profile = () => {
           <li className={classes['content__about-prop']}>Telephone:</li>
         </ul>
       </div>
-
-      <div className={classes.content__post}>
-        <form class={classes.content__form}>
-          <label className={classes['content__post-title']} for="input-post">
-            My post:
-          </label>
-          <textarea
-            id="input-post"
-            name="input-post"
-            rows="4"
-            cols="50"
-            placeholder="Writting something..."
-            className={classes['content__post-input']}
-          />
-          <button type="submit" className={classes['content__btn-public']}>
-            Public post
-          </button>
-        </form>
-        <div class={classes.content__articles}>
-          <article className={classes['content__my-post']}>Post #1</article>
-          <article className={classes['content__my-post']}>Post #2</article>
-        </div>
-      </div>
+      <MyPosts />
     </main>
   );
 };

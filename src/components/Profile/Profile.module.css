@@ -2,7 +2,7 @@
   grid-area: content;
   background-color: rgba(240, 240, 240, 0.835);
   display: grid;
-  grid-template-rows: 250px 1fr 1fr;
+  grid-template-rows: 250px 1fr;
   grid-template-columns: 1fr 3fr;
   grid-template-areas:
     'image-wrapper image-wrapper'
@@ -32,70 +32,4 @@
   grid-area: avatar;
   width: 100%;
   max-height: 250px;
-}
-
-.content__post {
-  grid-area: post;
-  display: flex;
-  flex-direction: column;
-}
-
-.content__form {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  margin-top: 15px;
-}
-
-.content__post-title {
-  width: 25%;
-  align-self: flex-start;
-  padding-right: 2%;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.content__post-input {
-  width: 99%;
-  margin-right: 10px;
-  padding-top: 15px;
-  padding-bottom: 10px;
-  resize: none;
-}
-
-.content__btn-public {
-  width: 15%;
-  align-self: flex-end;
-  margin-right: 10px;
-  margin-top: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-style: normal;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1em;
-  background-color: teal;
-  border: none;
-  color: azure;
-  transition: all 0.2s ease-in;
-}
-
-.content__btn-public:hover {
-  background-color: rgb(3, 144, 144);
-  transform: scale(1.05);
-}
-
-.content__my-post {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 1.1em;
-  font-style: italic;
-  font-weight: normal;
-
-  border: 1px solid teal;
-
-  margin-top: 10px;
-  margin-right: 10px;
 }
