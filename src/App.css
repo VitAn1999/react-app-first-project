@@ -16,4 +16,5 @@
     'header header'
     'nav-bar content';
   gap: 5px;
+  min-height: 100vh;
 }
