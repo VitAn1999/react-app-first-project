@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import classes from './Navbar.module.css';
 
 const Navbar = () => {
@@ -5,32 +6,49 @@ const Navbar = () => {
     <aside className={classes['nav-bar']}>
       <ul className={classes['nav-bar__list']}>
         <li className={classes['nav-bar__elem']}>
-          <a
-            href="/profile"
-            className={`${classes['nav-bar__link']} ${classes.active}`}
+          <NavLink
+            to="/profile"
+            className={classes['nav-bar__link']}
+            activeClassName={classes.active}
           >
             Profile
-          </a>
+          </NavLink>
         </li>
         <li className={classes['nav-bar__elem']}>
-          <a href="/messages" className={classes['nav-bar__link']}>
+          <NavLink
+            to="/messages"
+            className={classes['nav-bar__link']}
+            activeClassName={classes.active}
+          >
             Messages
-          </a>
+          </NavLink>
         </li>
         <li className={classes['nav-bar__elem']}>
-          <a href="/news" className={classes['nav-bar__link']}>
+          <NavLink
+            to="/news"
+            className={classes['nav-bar__link']}
+            activeClassName={classes.active}
+          >
             News
-          </a>
+          </NavLink>
         </li>
         <li className={classes['nav-bar__elem']}>
-          <a href="/music" className={classes['nav-bar__link']}>
+          <NavLink
+            to="/music"
+            className={classes['nav-bar__link']}
+            activeClassName={classes.active}
+          >
             Music
-          </a>
+          </NavLink>
         </li>
         <li className={classes['nav-bar__elem_setting']}>
-          <a href="/settings" className={classes['nav-bar__link']}>
+          <NavLink
+            to="/settings"
+            className={classes['nav-bar__link']}
+            activeClassName={classes.active}
+          >
             Settings
-          </a>
+          </NavLink>
         </li>
       </ul>
     </aside>
