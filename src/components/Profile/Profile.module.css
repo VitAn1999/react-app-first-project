@@ -9,7 +9,7 @@
     'avatar title'
     'post post';
   gap: 5px;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .content__image-wrapper {

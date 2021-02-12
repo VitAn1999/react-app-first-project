@@ -6,29 +6,29 @@ const Navbar = () => {
       <ul className={classes['nav-bar__list']}>
         <li className={classes['nav-bar__elem']}>
           <a
-            href="#"
+            href="/profile"
             className={`${classes['nav-bar__link']} ${classes.active}`}
           >
             Profile
           </a>
         </li>
         <li className={classes['nav-bar__elem']}>
-          <a href="#" className={classes['nav-bar__link']}>
+          <a href="/messages" className={classes['nav-bar__link']}>
             Messages
           </a>
         </li>
         <li className={classes['nav-bar__elem']}>
-          <a href="#" className={classes['nav-bar__link']}>
+          <a href="/news" className={classes['nav-bar__link']}>
             News
           </a>
         </li>
         <li className={classes['nav-bar__elem']}>
-          <a href="#" className={classes['nav-bar__link']}>
+          <a href="/music" className={classes['nav-bar__link']}>
             Music
           </a>
         </li>
         <li className={classes['nav-bar__elem_setting']}>
-          <a href="#" className={classes['nav-bar__link']}>
+          <a href="/settings" className={classes['nav-bar__link']}>
             Settings
           </a>
         </li>
