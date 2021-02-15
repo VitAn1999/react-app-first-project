@@ -27,32 +27,44 @@ const MessageOutgoing = (props) => {
 };
 
 const MessageArea = (props) => {
+  let incomMessageData = [
+    { id: 1, message: 'Привет' },
+    { id: 2, message: 'Как дела?' },
+    { id: 3, message: 'Тоже ок, позвонишь?' },
+  ];
+
+  let outgoMessageData = [
+    { id: 1, message: 'Привет, нормально' },
+    { id: 2, message: 'Как сам?' },
+    { id: 3, message: '5 мин' },
+  ];
+
   return (
     <div className={classes['content__message-area']}>
       <div className={classes.content__messages}>
         <MessageIncoming
           src="https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg"
-          message="Привет"
+          message={incomMessageData[0].message}
         />
         <MessageIncoming
           src="https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg"
-          message="Как дела?"
+          message={incomMessageData[1].message}
         />
         <MessageOutgoing
           src="https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg"
-          message="Привет, нормально"
+          message={outgoMessageData[0].message}
         />
         <MessageOutgoing
           src="https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg"
-          message="Как сам?"
+          message={outgoMessageData[1].message}
         />
         <MessageIncoming
           src="https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg"
-          message="Тоже ок, позвонишь?"
+          message={incomMessageData[2].message}
         />
         <MessageOutgoing
           src="https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg"
-          message="5 мин"
+          message={outgoMessageData[2].message}
         />
       </div>
       <form className={classes['content__entry-field']}>

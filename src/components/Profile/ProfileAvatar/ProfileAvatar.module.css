@@ -1,10 +1,14 @@
 .content__photo {
   grid-area: avatar;
   width: 100%;
-  max-height: 250px;
+  height: 250px;
+  background-color: #cccccc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
 }
 
-.content__photo img {
-  width: 100%;
-  max-height: 250px;
+.content__input input {
+  display: none;
 }

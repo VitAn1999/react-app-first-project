@@ -7,8 +7,8 @@ import ProfileTitle from './ProfileTitle/ProfileTitle';
 const Profile = () => {
   return (
     <main className={classes.content}>
-      <ProfileWallpaper />
-      <ProfileAvatar />
+      <ProfileWallpaper imgSrc="url('https://klike.net/uploads/posts/2019-01/1548057229_3.jpg')" />
+      <ProfileAvatar imgSrc="url('https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg')" />
       <ProfileTitle />
       <MyPosts />
     </main>
