@@ -1,0 +1,22 @@
+.content__message-wrapper_outgoing {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-bottom: 10px;
+}
+
+.content__message-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.content__message_outgoing {
+  padding: 7px;
+  margin-right: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  background-color: rgb(7, 77, 77);
+  color: azure;
+}

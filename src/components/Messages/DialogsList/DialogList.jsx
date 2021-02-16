@@ -1,25 +1,8 @@
 import classes from './DialogList.module.css';
-import { NavLink } from 'react-router-dom';
-
-const DialogItem = (props) => {
-  return (
-    <NavLink
-      to={'/messages/' + props.id}
-      className={classes.content__dialog}
-      activeClassName={classes.active}
-    >
-      <img
-        src={props.src}
-        alt="user avatar"
-        className={classes['content__dialog-avatar']}
-      />
-      <p className={classes['content__dialog-user']}>{props.userName}</p>
-    </NavLink>
-  );
-};
+import DialogItem from './DialogItem/DialogItem';
 
 const DialogList = (props) => {
-  let userData = [
+  let usersData = [
     {
       id: 1,
       userName: 'Anton',
@@ -45,29 +28,14 @@ const DialogList = (props) => {
     },
   ];
 
+  let usersItem = usersData.map((user) => {
+    return <DialogItem id={user.id} userName={user.userName} src={user.src} />;
+  });
+
   return (
     <div className={classes.content__dialogs}>
       <h2 className={classes['content__dialogs-title']}>Dialogs</h2>
-      <DialogItem
-        id={userData[0].id}
-        userName={userData[0].userName}
-        src={userData[0].src}
-      />
-      <DialogItem
-        id={userData[1].id}
-        userName={userData[1].userName}
-        src={userData[1].src}
-      />
-      <DialogItem
-        id={userData[2].id}
-        userName={userData[2].userName}
-        src={userData[2].src}
-      />
-      <DialogItem
-        id={userData[3].id}
-        userName={userData[3].userName}
-        src={userData[3].src}
-      />
+      {usersItem}
     </div>
   );
 };

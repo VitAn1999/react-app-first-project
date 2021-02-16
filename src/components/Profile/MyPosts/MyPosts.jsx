@@ -8,6 +8,10 @@ const MyPosts = () => {
     { id: 3, post: 'какулька', count: '8' },
     { id: 4, post: 'Николас Кейдж', count: '15' },
   ];
+
+  let postElements = postData.map((post) => {
+    return <Post text={post.post} count={post.count} />;
+  });
   return (
     <div className={classes.posts}>
       <form class={classes.posts__form}>
@@ -26,10 +30,7 @@ const MyPosts = () => {
           Public post
         </button>
       </form>
-      <Post text={postData[0].post} count={postData[0].count} />
-      <Post text={postData[1].post} count={postData[1].count} />
-      <Post text={postData[2].post} count={postData[2].count} />
-      <Post text={postData[3].post} count={postData[3].count} />
+      {postElements}
     </div>
   );
 };

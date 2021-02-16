@@ -1,30 +1,6 @@
 import classes from './MessageArea.module.css';
-
-const MessageIncoming = (props) => {
-  return (
-    <div className={classes['content__message-wrapper_incoming']}>
-      <img
-        src={props.src}
-        alt="user avatar"
-        className={classes['content__message-avatar']}
-      />
-      <p className={classes.content__message_incoming}>{props.message}</p>
-    </div>
-  );
-};
-
-const MessageOutgoing = (props) => {
-  return (
-    <div className={classes['content__message-wrapper_outgoing']}>
-      <img
-        src={props.src}
-        alt="user avatar"
-        className={classes['content__message-avatar']}
-      />
-      <p className={classes.content__message_outgoing}>{props.message}</p>
-    </div>
-  );
-};
+import MessageIncoming from './MsgIn/MessageIncoming';
+import MessageOutgoing from './MsgOut/MessageOutgoing';
 
 const MessageArea = (props) => {
   let incomMessageData = [
