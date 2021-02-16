@@ -9,17 +9,17 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Footer from './components/Footer/Footer';
 
-const App = () => {
+const App = (props) => {
   return (
     <Router>
       <div className="wrapper">
         <Header />
         <Navbar />
         <Route path="/profile">
-          <Profile />
+          <Profile posts={props.posts} />
         </Route>
         <Route path="/messages">
-          <Messages />
+          <Messages users={props.users} />
         </Route>
         <Route path="/music">
           <Music />

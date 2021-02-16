@@ -5,7 +5,7 @@ import DialogList from './DialogsList/DialogList';
 const Messages = (props) => {
   return (
     <div className={classes.content}>
-      <DialogList />
+      <DialogList users={props.users} />
       <MessageArea />
     </div>
   );
