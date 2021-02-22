@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import { v4 as UUIDv4 } from "UUID";
 const state = {
   postData: [
     { id: 1, post: "какулька", count: "5" },
