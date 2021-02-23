@@ -14,7 +14,7 @@ const App = (props) => {
     <Router>
       <div className="wrapper">
         <Header />
-        <Navbar />
+        <Navbar friends={props.friends} />
         <Route path="/profile">
           <Profile posts={props.posts} />
         </Route>

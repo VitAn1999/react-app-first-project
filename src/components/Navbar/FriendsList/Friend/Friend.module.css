@@ -1,0 +1,21 @@
+.friend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.2s ease-in;
+  outline: 0px dotted teal;
+  width: 25%;
+  padding: 3px;
+}
+
+.friend:hover {
+  transform: scale(1.05);
+  outline: 1px dotted teal;
+  cursor: pointer;
+}
+
+.friend img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}

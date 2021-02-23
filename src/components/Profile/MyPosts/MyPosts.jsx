@@ -1,14 +1,14 @@
-import classes from './MyPosts.module.css';
-import Post from './Post/Post';
+import classes from "./MyPosts.module.css";
+import Post from "./Post/Post";
 
 const MyPosts = (props) => {
   let postElements = props.posts.map((post) => {
-    return <Post text={post.post} count={post.count} />;
+    return <Post key={post.id} text={post.post} count={post.count} />;
   });
   return (
     <div className={classes.posts}>
-      <form class={classes.posts__form}>
-        <label className={classes['posts__post-title']} for="input-post">
+      <form className={classes.posts__form}>
+        <label className={classes["posts__post-title"]} htmlFor="input-post">
           My post:
         </label>
         <textarea
@@ -17,9 +17,9 @@ const MyPosts = (props) => {
           rows="4"
           cols="50"
           placeholder="Writting something..."
-          className={classes['posts__post-input']}
+          className={classes["posts__post-input"]}
         />
-        <button type="submit" className={classes['posts__btn-public']}>
+        <button type="submit" className={classes["posts__btn-public"]}>
           Public post
         </button>
       </form>
