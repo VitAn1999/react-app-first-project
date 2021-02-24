@@ -1,49 +1,21 @@
-import classes from './MessageArea.module.css';
-import MessageIncoming from './MsgIn/MessageIncoming';
-import MessageOutgoing from './MsgOut/MessageOutgoing';
+import classes from "./MessageArea.module.css";
+import Message from "./Message/Message";
 
 const MessageArea = (props) => {
-  let incomMessageData = [
-    { id: 1, message: 'Привет' },
-    { id: 2, message: 'Как дела?' },
-    { id: 3, message: 'Тоже ок, позвонишь?' },
-  ];
-
-  let outgoMessageData = [
-    { id: 1, message: 'Привет, нормально' },
-    { id: 2, message: 'Как сам?' },
-    { id: 3, message: '5 мин' },
-  ];
-
+  let message = props.messages.map((message) => {
+    return (
+      <Message
+        key={message.index}
+        message={message.message}
+        type={message.type}
+        src={message.src}
+      />
+    );
+  });
   return (
-    <div className={classes['content__message-area']}>
-      <div className={classes.content__messages}>
-        <MessageIncoming
-          src="https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg"
-          message={incomMessageData[0].message}
-        />
-        <MessageIncoming
-          src="https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg"
-          message={incomMessageData[1].message}
-        />
-        <MessageOutgoing
-          src="https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg"
-          message={outgoMessageData[0].message}
-        />
-        <MessageOutgoing
-          src="https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg"
-          message={outgoMessageData[1].message}
-        />
-        <MessageIncoming
-          src="https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg"
-          message={incomMessageData[2].message}
-        />
-        <MessageOutgoing
-          src="https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg"
-          message={outgoMessageData[2].message}
-        />
-      </div>
-      <form className={classes['content__entry-field']}>
+    <div className={classes["content__message-area"]}>
+      <div className={classes.content__messages}>{message}</div>
+      <form className={classes["content__entry-field"]}>
         <textarea rows="2" cols="50" placeholder="Enter message" />
         <button>Send</button>
       </form>

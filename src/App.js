@@ -19,7 +19,7 @@ const App = (props) => {
           <Profile posts={props.posts} />
         </Route>
         <Route path="/messages">
-          <Messages users={props.users} />
+          <Messages users={props.users} messages={props.messages} />
         </Route>
         <Route path="/music">
           <Music />

@@ -32,5 +32,46 @@ export default {
           "https://i.pinimg.com/736x/2d/0e/41/2d0e419c310033945063c6c9884b2725.jpg",
       },
     ],
+    messagesData: [
+      {
+        index: 1,
+        message: "Привет",
+        type: "content__message_incoming",
+        src:
+          "https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg",
+      },
+      {
+        index: 2,
+        message: "Как дела?",
+        type: "content__message_incoming",
+        src:
+          "https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg",
+      },
+      {
+        index: 3,
+        message: "Привет, нормально",
+        type: "content__message_outgoing",
+        src: "https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg",
+      },
+      {
+        index: 4,
+        message: "Как сам?",
+        type: "content__message_outgoing",
+        src: "https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg",
+      },
+      {
+        index: 5,
+        message: "Тоже ок, позвонишь?",
+        type: "content__message_incoming",
+        src:
+          "https://pm1.narvii.com/6825/d74beddc6e5570160f786213f68d740dc0c30834v2_00.jpg",
+      },
+      {
+        index: 6,
+        message: "5 мин",
+        type: "content__message_outgoing",
+        src: "https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg",
+      },
+    ],
   },
 };

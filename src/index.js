@@ -11,6 +11,7 @@ ReactDOM.render(
       posts={store.state.postData}
       users={store.state.usersData}
       friends={store.state.usersData}
+      messages={store.state.messagesData}
     />
   </React.StrictMode>,
   document.getElementById("root")
