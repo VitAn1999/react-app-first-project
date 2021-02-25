@@ -9,7 +9,9 @@ const MyPosts = (props) => {
   let newPost = React.createRef();
   let addPost = () => {
     let text = newPost.current.value;
-    alert(text);
+    let func = props.addPost.bind(props.context);
+    func(text);
+    newPost.current.value = "";
   };
   return (
     <div className={classes.posts}>
@@ -26,7 +28,11 @@ const MyPosts = (props) => {
           placeholder="Writting something..."
           className={classes["posts__post-input"]}
         />
-        <button onClick={addPost} className={classes["posts__btn-public"]}>
+        <button
+          type="button"
+          onClick={addPost}
+          className={classes["posts__btn-public"]}
+        >
           Public post
         </button>
       </form>

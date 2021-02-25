@@ -1,11 +1,12 @@
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+import { rerenderDOM } from "../render";
+
+let store = {
   state: {
     postData: [
-      { id: 1, post: "какулька", count: "5" },
-      { id: 2, post: "Бэтмен", count: "12" },
-      { id: 3, post: "какулька", count: "8" },
-      { id: 4, post: "Николас Кейдж", count: "15" },
+      { id: 4, post: "какулька", count: "5" },
+      { id: 3, post: "Бэтмен", count: "12" },
+      { id: 2, post: "какулька", count: "8" },
+      { id: 1, post: "Николас Кейдж", count: "15" },
     ],
     usersData: [
       {
@@ -74,4 +75,17 @@ export default {
       },
     ],
   },
+  mutations: {
+    addPost(text) {
+      let post = {
+        id: this.state.postData[0]["id"] + 1,
+        post: text,
+        count: 0,
+      };
+      this.state.postData.unshift(post);
+      rerenderDOM(store);
+    },
+  },
 };
+
+export default store;

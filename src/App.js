@@ -16,7 +16,11 @@ const App = (props) => {
         <Header />
         <Navbar friends={props.friends} />
         <Route path="/profile">
-          <Profile posts={props.posts} />
+          <Profile
+            posts={props.posts}
+            addPost={props.addPost}
+            context={props.context}
+          />
         </Route>
         <Route path="/messages">
           <Messages users={props.users} messages={props.messages} />

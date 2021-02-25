@@ -1,5 +1,6 @@
 import classes from "./FriendsList.module.css";
 import Friend from "./Friend/Friend";
+import { NavLink } from "react-router-dom";
 
 const FriendsList = (props) => {
   let count = 0;
@@ -11,7 +12,9 @@ const FriendsList = (props) => {
   });
   return (
     <div className={classes["friends-list__wrapper"]}>
-      <p className={classes["friends-list__title"]}>Friends list:</p>
+      <NavLink to="/" className={classes["friends-list__title"]}>
+        Friends list:
+      </NavLink>
       <div className={classes["friends-list__friend"]}>{friend}</div>
     </div>
   );
