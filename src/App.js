@@ -18,7 +18,9 @@ const App = (props) => {
         <Route path="/profile">
           <Profile
             posts={props.posts}
+            postValue={props.postValue}
             addPost={props.addPost}
+            changePost={props.changePost}
             context={props.context}
           />
         </Route>

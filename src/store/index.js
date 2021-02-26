@@ -2,12 +2,15 @@ import { rerenderDOM } from "../render";
 
 let store = {
   state: {
-    postData: [
-      { id: 4, post: "какулька", count: "5" },
-      { id: 3, post: "Бэтмен", count: "12" },
-      { id: 2, post: "какулька", count: "8" },
-      { id: 1, post: "Николас Кейдж", count: "15" },
-    ],
+    postData: {
+      posts: [
+        { id: 4, post: "какулька", count: "5" },
+        { id: 3, post: "Бэтмен", count: "12" },
+        { id: 2, post: "какулька", count: "8" },
+        { id: 1, post: "Николас Кейдж", count: "15" },
+      ],
+      postValue: "",
+    },
     usersData: [
       {
         id: 1,
@@ -76,13 +79,18 @@ let store = {
     ],
   },
   mutations: {
-    addPost(text) {
+    addPost() {
       let post = {
-        id: this.state.postData[0]["id"] + 1,
-        post: text,
+        id: this.state.postData.posts[0]["id"] + 1,
+        post: this.state.postData.postValue,
         count: 0,
       };
-      this.state.postData.unshift(post);
+      this.state.postData.posts.unshift(post);
+      this.state.postData.postValue = "";
+      rerenderDOM(store);
+    },
+    changePost(text) {
+      this.state.postData.postValue = text;
       rerenderDOM(store);
     },
   },

@@ -7,11 +7,18 @@ const MyPosts = (props) => {
     return <Post key={post.id} text={post.post} count={post.count} />;
   });
   let newPost = React.createRef();
+
   let addPost = () => {
     let text = newPost.current.value;
     let func = props.addPost.bind(props.context);
+    if (text) {
+      func();
+    }
+  };
+  let changePost = () => {
+    let text = newPost.current.value;
+    let func = props.changePost.bind(props.context);
     func(text);
-    newPost.current.value = "";
   };
   return (
     <div className={classes.posts}>
@@ -20,9 +27,11 @@ const MyPosts = (props) => {
           My post:
         </label>
         <textarea
+          onChange={changePost}
           id="input-post"
           ref={newPost}
           name="input-post"
+          value={props.postValue}
           rows="4"
           cols="50"
           placeholder="Writting something..."
