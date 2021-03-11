@@ -25,7 +25,13 @@ const App = (props) => {
           />
         </Route>
         <Route path="/messages">
-          <Messages users={props.users} messages={props.messages} />
+          <Messages
+            users={props.users}
+            messages={props.messages}
+            addMessage={props.addMessage}
+            changeMessage={props.changeMessage}
+            context={props.context}
+          />
         </Route>
         <Route path="/music">
           <Music />

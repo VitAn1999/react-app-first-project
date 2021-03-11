@@ -3,7 +3,7 @@ import Message from "./Message/Message";
 import React from "react";
 
 const MessageArea = (props) => {
-  let message = props.messages.map((message) => {
+  let messageElem = props.messages.map((message) => {
     return (
       <Message
         key={message.index}
@@ -17,20 +17,32 @@ const MessageArea = (props) => {
   let newMessage = React.createRef();
   let sendMessage = () => {
     let message = newMessage.current.value;
-    alert(message);
+    let func = props.addMessage.bind(props.context);
+    if (message) {
+      func();
+    }
+    newMessage.current.value = "";
+  };
+  let changeMessage = () => {
+    let message = newMessage.current.value;
+    let func = props.changeMessage.bind(props.context);
+    func(message);
   };
 
   return (
     <div className={classes["content__message-area"]}>
-      <div className={classes.content__messages}>{message}</div>
+      <div className={classes.content__messages}>{messageElem}</div>
       <form className={classes["content__entry-field"]}>
         <textarea
+          onChange={changeMessage}
           ref={newMessage}
           rows="2"
           cols="50"
           placeholder="Enter message"
         />
-        <button onClick={sendMessage}>Send</button>
+        <button type="button" onClick={sendMessage}>
+          Send
+        </button>
       </form>
     </div>
   );

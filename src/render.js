@@ -11,7 +11,9 @@ export let rerenderDOM = (store) => {
         postValue={store.state.postData.postValue}
         users={store.state.usersData}
         friends={store.state.usersData}
-        messages={store.state.messagesData}
+        messages={store.state.messagesData.messages}
+        addMessage={store.mutations.addMessage}
+        changeMessage={store.mutations.changeMessage}
         addPost={store.mutations.addPost}
         changePost={store.mutations.changePost}
         context={store}

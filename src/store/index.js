@@ -96,14 +96,18 @@ let store = {
       this.state.postData.postValue = text;
       rerenderDOM(store);
     },
-    addMessage(text) {
+    addMessage() {
       let message = {
-        index: this.state.messageData.length,
-        message: text,
+        index: this.state.messagesData.messages.length + 1,
+        message: this.state.messagesData.messageValue,
         type: "content__message_outgoing",
         src: "https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg",
       };
-      this.state.messageData.push(message);
+      this.state.messagesData.messages.push(message);
+      rerenderDOM(store);
+    },
+    changeMessage(text) {
+      this.state.messagesData.messageValue = text;
       rerenderDOM(store);
     },
   },
