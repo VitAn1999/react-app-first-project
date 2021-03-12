@@ -28,6 +28,7 @@ const App = (props) => {
           <Messages
             users={props.users}
             messages={props.messages}
+            messageValue={props.messageValue}
             addMessage={props.addMessage}
             changeMessage={props.changeMessage}
             context={props.context}

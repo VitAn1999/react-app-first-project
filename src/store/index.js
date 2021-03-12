@@ -1,4 +1,6 @@
-import { rerenderDOM } from "../render";
+let rerenderDOM = () => {
+  console.log("rerender");
+};
 
 let store = {
   state: {
@@ -104,6 +106,7 @@ let store = {
         src: "https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg",
       };
       this.state.messagesData.messages.push(message);
+      this.state.messagesData.messageValue = "";
       rerenderDOM(store);
     },
     changeMessage(text) {
@@ -111,6 +114,10 @@ let store = {
       rerenderDOM(store);
     },
   },
+};
+
+export const subcscribe = (observer) => {
+  rerenderDOM = observer;
 };
 
 export default store;

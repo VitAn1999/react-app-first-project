@@ -8,6 +8,7 @@ const Messages = (props) => {
       <DialogList users={props.users} />
       <MessageArea
         messages={props.messages}
+        messageValue={props.messageValue}
         addMessage={props.addMessage}
         changeMessage={props.changeMessage}
         context={props.context}

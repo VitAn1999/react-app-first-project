@@ -21,7 +21,6 @@ const MessageArea = (props) => {
     if (message) {
       func();
     }
-    newMessage.current.value = "";
   };
   let changeMessage = () => {
     let message = newMessage.current.value;
@@ -36,6 +35,7 @@ const MessageArea = (props) => {
         <textarea
           onChange={changeMessage}
           ref={newMessage}
+          value={props.messageValue}
           rows="2"
           cols="50"
           placeholder="Enter message"
