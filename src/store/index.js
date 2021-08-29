@@ -1,9 +1,5 @@
-let rerenderDOM = () => {
-  console.log('rerender');
-};
-
 let store = {
-  state: {
+  _state: {
     postData: {
       posts: [
         { id: 4, post: 'какулька', count: '5' },
@@ -77,41 +73,57 @@ let store = {
       messageValue: '',
     },
   },
+  _subscriber() {
+    console.log('rerender page');
+  },
+  getters: {
+    getAllState() {
+      return this._state;
+    },
+    getPostData() {
+      return this._state.postData;
+    },
+    getUsersData() {
+      return this._state.usersData;
+    },
+    getMessagesData() {
+      return this._state.messagesData;
+    },
+  },
+  subcscribe(observer) {
+    this._subscriber = observer;
+  },
   mutations: {
     addPost() {
       let post = {
-        id: this.state.postData.posts[0]['id'] + 1,
-        post: this.state.postData.postValue,
+        id: this._state.postData.posts[0]['id'] + 1,
+        post: this._state.postData.postValue,
         count: 0,
       };
-      this.state.postData.posts.unshift(post);
-      this.state.postData.postValue = '';
-      rerenderDOM(store);
+      this._state.postData.posts.unshift(post);
+      this._state.postData.postValue = '';
+      this._subscriber(store);
     },
     changePost(text) {
-      this.state.postData.postValue = text;
-      rerenderDOM(store);
+      this._state.postData.postValue = text;
+      this._subscriber(store);
     },
     addMessage() {
       let message = {
-        index: this.state.messagesData.messages.length + 1,
-        message: this.state.messagesData.messageValue,
+        index: this._state.messagesData.messages.length + 1,
+        message: this._state.messagesData.messageValue,
         type: 'content__message_outgoing',
         src: 'https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg',
       };
-      this.state.messagesData.messages.push(message);
-      this.state.messagesData.messageValue = '';
-      rerenderDOM(store);
+      this._state.messagesData.messages.push(message);
+      this._state.messagesData.messageValue = '';
+      this._subscriber(store);
     },
     changeMessage(text) {
-      this.state.messagesData.messageValue = text;
-      rerenderDOM(store);
+      this._state.messagesData.messageValue = text;
+      this._subscriber(store);
     },
   },
-};
-
-export const subcscribe = (observer) => {
-  rerenderDOM = observer;
 };
 
 export default store;

@@ -1,21 +1,24 @@
-import reportWebVitals from "./reportWebVitals";
-import store from "./store";
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import { subcscribe } from "./store/index";
+import reportWebVitals from './reportWebVitals';
+import store from './store';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+let postData = store.getters.getPostData.call(store);
+let usersData = store.getters.getUsersData.call(store);
+let messagesData = store.getters.getMessagesData.call(store);
 
 export let rerenderDOM = (store) => {
   ReactDOM.render(
     <React.StrictMode>
       <App
-        posts={store.state.postData.posts}
-        postValue={store.state.postData.postValue}
-        users={store.state.usersData}
-        friends={store.state.usersData}
-        messages={store.state.messagesData.messages}
-        messageValue={store.state.messagesData.messageValue}
+        posts={postData.posts}
+        postValue={postData.postValue}
+        users={usersData}
+        friends={usersData}
+        messages={messagesData.messages}
+        messageValue={messagesData.messageValue}
         addMessage={store.mutations.addMessage}
         changeMessage={store.mutations.changeMessage}
         addPost={store.mutations.addPost}
@@ -23,12 +26,12 @@ export let rerenderDOM = (store) => {
         context={store}
       />
     </React.StrictMode>,
-    document.getElementById("root")
+    document.getElementById('root')
   );
 };
 
 rerenderDOM(store);
 
-subcscribe(rerenderDOM);
+store.subcscribe(rerenderDOM);
 
 reportWebVitals();
