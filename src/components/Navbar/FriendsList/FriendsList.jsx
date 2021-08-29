@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const FriendsList = (props) => {
   let count = 0;
+  // eslint-disable-next-line
   let friend = props.friends.map((friend) => {
     if (count < 3) {
       count += 1;
