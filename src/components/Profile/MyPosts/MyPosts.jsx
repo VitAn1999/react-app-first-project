@@ -1,6 +1,7 @@
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import React from 'react';
+import { addPostCreator, changePostCreator } from '../../../store';
 
 const MyPosts = (props) => {
   let postElements = props.posts.map((post) => {
@@ -10,15 +11,13 @@ const MyPosts = (props) => {
 
   let addPost = () => {
     let text = newPost.current.value;
-    let func = props.addPost;
     if (text) {
-      func();
+      props.dispatch(addPostCreator());
     }
   };
   let changePost = () => {
     let text = newPost.current.value;
-    let func = props.changePost;
-    func(text);
+    props.dispatch(changePostCreator(text));
   };
   return (
     <div className={classes.posts}>

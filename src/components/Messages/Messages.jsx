@@ -9,8 +9,7 @@ const Messages = (props) => {
       <MessageArea
         messages={props.messages}
         messageValue={props.messageValue}
-        addMessage={props.addMessage}
-        changeMessage={props.changeMessage}
+        dispatch={props.dispatch}
       />
     </div>
   );

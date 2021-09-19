@@ -1,6 +1,7 @@
 import classes from './MessageArea.module.css';
 import Message from './Message/Message';
 import React from 'react';
+import { addMessageCreator, changeMessageCreator } from '../../../store';
 
 const MessageArea = (props) => {
   let messageElem = props.messages.map((message) => {
@@ -17,15 +18,13 @@ const MessageArea = (props) => {
   let newMessage = React.createRef();
   let sendMessage = () => {
     let message = newMessage.current.value;
-    let func = props.addMessage;
     if (message) {
-      func();
+      props.dispatch(addMessageCreator());
     }
   };
   let changeMessage = () => {
     let message = newMessage.current.value;
-    let func = props.changeMessage;
-    func(message);
+    props.dispatch(changeMessageCreator(message));
   };
 
   return (
