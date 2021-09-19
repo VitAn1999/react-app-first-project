@@ -1,6 +1,6 @@
-import classes from "./MessageArea.module.css";
-import Message from "./Message/Message";
-import React from "react";
+import classes from './MessageArea.module.css';
+import Message from './Message/Message';
+import React from 'react';
 
 const MessageArea = (props) => {
   let messageElem = props.messages.map((message) => {
@@ -17,21 +17,21 @@ const MessageArea = (props) => {
   let newMessage = React.createRef();
   let sendMessage = () => {
     let message = newMessage.current.value;
-    let func = props.addMessage.bind(props.context);
+    let func = props.addMessage;
     if (message) {
       func();
     }
   };
   let changeMessage = () => {
     let message = newMessage.current.value;
-    let func = props.changeMessage.bind(props.context);
+    let func = props.changeMessage;
     func(message);
   };
 
   return (
-    <div className={classes["content__message-area"]}>
+    <div className={classes['content__message-area']}>
       <div className={classes.content__messages}>{messageElem}</div>
-      <form className={classes["content__entry-field"]}>
+      <form className={classes['content__entry-field']}>
         <textarea
           onChange={changeMessage}
           ref={newMessage}

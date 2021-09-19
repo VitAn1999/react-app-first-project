@@ -1,6 +1,6 @@
-import classes from "./Messages.module.css";
-import MessageArea from "./MessageArea/MessageArea";
-import DialogList from "./DialogsList/DialogList";
+import classes from './Messages.module.css';
+import MessageArea from './MessageArea/MessageArea';
+import DialogList from './DialogsList/DialogList';
 
 const Messages = (props) => {
   return (
@@ -11,7 +11,6 @@ const Messages = (props) => {
         messageValue={props.messageValue}
         addMessage={props.addMessage}
         changeMessage={props.changeMessage}
-        context={props.context}
       />
     </div>
   );

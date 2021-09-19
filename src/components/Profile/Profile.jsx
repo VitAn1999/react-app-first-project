@@ -1,8 +1,8 @@
-import classes from "./Profile.module.css";
-import MyPosts from "./MyPosts/MyPosts";
-import ProfileWallpaper from "./ProfileWallpaper/ProfileWallpaper";
-import ProfileAvatar from "./ProfileAvatar/ProfileAvatar";
-import ProfileTitle from "./ProfileTitle/ProfileTitle";
+import classes from './Profile.module.css';
+import MyPosts from './MyPosts/MyPosts';
+import ProfileWallpaper from './ProfileWallpaper/ProfileWallpaper';
+import ProfileAvatar from './ProfileAvatar/ProfileAvatar';
+import ProfileTitle from './ProfileTitle/ProfileTitle';
 
 const Profile = (props) => {
   return (
@@ -15,7 +15,6 @@ const Profile = (props) => {
         postValue={props.postValue}
         addPost={props.addPost}
         changePost={props.changePost}
-        context={props.context}
       />
     </main>
   );

@@ -10,14 +10,14 @@ const MyPosts = (props) => {
 
   let addPost = () => {
     let text = newPost.current.value;
-    let func = props.addPost.bind(props.context);
+    let func = props.addPost;
     if (text) {
       func();
     }
   };
   let changePost = () => {
     let text = newPost.current.value;
-    let func = props.changePost.bind(props.context);
+    let func = props.changePost;
     func(text);
   };
   return (

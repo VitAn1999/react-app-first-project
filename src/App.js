@@ -21,7 +21,6 @@ const App = (props) => {
             postValue={props.postValue}
             addPost={props.addPost}
             changePost={props.changePost}
-            context={props.context}
           />
         </Route>
         <Route path="/messages">
@@ -31,7 +30,6 @@ const App = (props) => {
             messageValue={props.messageValue}
             addMessage={props.addMessage}
             changeMessage={props.changeMessage}
-            context={props.context}
           />
         </Route>
         <Route path="/music">

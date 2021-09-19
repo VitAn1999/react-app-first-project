@@ -19,11 +19,10 @@ export let rerenderDOM = (store) => {
         friends={usersData}
         messages={messagesData.messages}
         messageValue={messagesData.messageValue}
-        addMessage={store.mutations.addMessage}
-        changeMessage={store.mutations.changeMessage}
-        addPost={store.mutations.addPost}
-        changePost={store.mutations.changePost}
-        context={store}
+        addMessage={store.mutations.addMessage.bind(store)}
+        changeMessage={store.mutations.changeMessage.bind(store)}
+        addPost={store.mutations.addPost.bind(store)}
+        changePost={store.mutations.changePost.bind(store)}
       />
     </React.StrictMode>,
     document.getElementById('root')
