@@ -1,7 +1,10 @@
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import React from 'react';
-import { addPostCreator, changePostCreator } from '../../../store';
+import {
+  addPostCreator,
+  changePostCreator,
+} from '../../../store/my-post-reducer';
 
 const MyPosts = (props) => {
   let postElements = props.posts.map((post) => {

@@ -1,7 +1,10 @@
 import classes from './MessageArea.module.css';
 import Message from './Message/Message';
 import React from 'react';
-import { addMessageCreator, changeMessageCreator } from '../../../store';
+import {
+  addMessageCreator,
+  changeMessageCreator,
+} from '../../../store/message-reducer';
 
 const MessageArea = (props) => {
   let messageElem = props.messages.map((message) => {

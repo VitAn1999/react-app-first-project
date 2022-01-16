@@ -1,8 +1,5 @@
-// actions type
-const addPost = 'addPost',
-  addMessage = 'addMessage',
-  changePost = 'changePost',
-  changeMessage = 'changeMessage';
+import myPostReducer from './my-post-reducer';
+import myMessagesReducer from './message-reducer';
 
 // store
 let store = {
@@ -80,37 +77,6 @@ let store = {
       messageValue: '',
     },
   },
-  actions: {
-    _addPost() {
-      let post = {
-        id: this._state.postData.posts[0]['id'] + 1,
-        post: this._state.postData.postValue,
-        count: 0,
-      };
-      this._state.postData.posts.unshift(post);
-      this._state.postData.postValue = '';
-      this._subscriber(store);
-    },
-    _changePost(text) {
-      this._state.postData.postValue = text;
-      this._subscriber(store);
-    },
-    _addMessage() {
-      let message = {
-        index: this._state.messagesData.messages.length + 1,
-        message: this._state.messagesData.messageValue,
-        type: 'content__message_outgoing',
-        src: 'https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg',
-      };
-      this._state.messagesData.messages.push(message);
-      this._state.messagesData.messageValue = '';
-      this._subscriber(store);
-    },
-    _changeMessage(text) {
-      this._state.messagesData.messageValue = text;
-      this._subscriber(store);
-    },
-  },
   _subscriber() {
     console.log('rerender page');
   },
@@ -132,25 +98,13 @@ let store = {
     this._subscriber = observer;
   },
   dispatch(action) {
-    if (action.type === addPost) {
-      this.actions._addPost.call(this);
-    } else if (action.type === changePost) {
-      this.actions._changePost.call(this, action.text);
-    } else if (action.type === addMessage) {
-      this.actions._addMessage.call(this);
-    } else if (action.type === changeMessage) {
-      this.actions._changeMessage.call(this, action.message);
-    }
+    this._state.postData = myPostReducer(this._state.postData, action);
+    this._state.messagesData = myMessagesReducer(
+      this._state.messagesData,
+      action
+    );
+    this._subscriber(this);
   },
 };
-
-// actions creator
-export const addPostCreator = () => ({ type: addPost });
-export const changePostCreator = (text) => ({ type: changePost, text });
-export const addMessageCreator = () => ({ type: addMessage });
-export const changeMessageCreator = (message) => ({
-  type: changeMessage,
-  message,
-});
 
 export default store;
