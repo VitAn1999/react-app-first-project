@@ -14,7 +14,7 @@ const App = (props) => {
     <Router>
       <div className="wrapper">
         <Header />
-        <Navbar friends={props.usersData} />
+        <Navbar friends={props.usersData.users} />
         <Route path="/profile">
           <Profile
             posts={props.postsData.posts}
@@ -24,7 +24,7 @@ const App = (props) => {
         </Route>
         <Route path="/messages">
           <Messages
-            users={props.usersData}
+            users={props.usersData.users}
             messages={props.messagesData.messages}
             messageValue={props.messagesData.messageValue}
             dispatch={props.dispatch}

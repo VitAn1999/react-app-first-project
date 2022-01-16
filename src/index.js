@@ -1,17 +1,17 @@
 import reportWebVitals from './reportWebVitals';
-import store from './store';
+import store from './store/redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-export let rerenderDOM = (store) => {
+export let rerenderDOM = (state) => {
   ReactDOM.render(
     <React.StrictMode>
       <App
-        postsData={store.getters.getPostData.call(store)}
-        usersData={store.getters.getUsersData.call(store)}
-        messagesData={store.getters.getMessagesData.call(store)}
+        postsData={state.postData}
+        usersData={state.userData}
+        messagesData={state.messagesData}
         dispatch={store.dispatch.bind(store)}
       />
     </React.StrictMode>,
@@ -19,8 +19,11 @@ export let rerenderDOM = (store) => {
   );
 };
 
-rerenderDOM(store);
+rerenderDOM(store.getState());
 
-store.subcscribe(rerenderDOM);
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderDOM(state);
+});
 
 reportWebVitals();
