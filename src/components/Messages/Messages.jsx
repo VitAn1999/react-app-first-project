@@ -1,15 +1,16 @@
 import classes from './Messages.module.css';
-import MessageArea from './MessageArea/MessageArea';
-import DialogList from './DialogsList/DialogList';
+import MessageAreaContainer from './MessageArea/MessageAreaContainer';
+import DialogListContainer from './DialogsList/DialogListContainer';
 
 const Messages = (props) => {
   return (
     <div className={classes.content}>
-      <DialogList users={props.users} />
-      <MessageArea
-        messages={props.messages}
-        messageValue={props.messageValue}
-        dispatch={props.dispatch}
+      <DialogListContainer store={props.store} users={props.users} />
+      <MessageAreaContainer
+        store={props.store}
+        // messages={props.messages}
+        // messageValue={props.messageValue}
+        // dispatch={props.dispatch}
       />
     </div>
   );

@@ -1,10 +1,6 @@
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
 import React from 'react';
-import {
-  addPostCreator,
-  changePostCreator,
-} from '../../../store/my-post-reducer';
 
 const MyPosts = (props) => {
   let postElements = props.posts.map((post) => {
@@ -15,12 +11,12 @@ const MyPosts = (props) => {
   let addPost = () => {
     let text = newPost.current.value;
     if (text) {
-      props.dispatch(addPostCreator());
+      props.addPost();
     }
   };
   let changePost = () => {
     let text = newPost.current.value;
-    props.dispatch(changePostCreator(text));
+    props.changePost(text);
   };
   return (
     <div className={classes.posts}>

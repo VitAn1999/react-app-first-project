@@ -5,25 +5,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-export let rerenderDOM = (state) => {
+export let rerenderDOM = (store) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App
-        postsData={state.postData}
-        usersData={state.userData}
-        messagesData={state.messagesData}
-        dispatch={store.dispatch.bind(store)}
-      />
+      <App store={store} />
     </React.StrictMode>,
     document.getElementById('root')
   );
 };
 
-rerenderDOM(store.getState());
+rerenderDOM(store);
 
 store.subscribe(() => {
-  let state = store.getState();
-  rerenderDOM(state);
+  rerenderDOM(store);
 });
 
 reportWebVitals();

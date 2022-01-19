@@ -1,10 +1,6 @@
 import classes from './MessageArea.module.css';
 import Message from './Message/Message';
 import React from 'react';
-import {
-  addMessageCreator,
-  changeMessageCreator,
-} from '../../../store/message-reducer';
 
 const MessageArea = (props) => {
   let messageElem = props.messages.map((message) => {
@@ -22,12 +18,12 @@ const MessageArea = (props) => {
   let sendMessage = () => {
     let message = newMessage.current.value;
     if (message) {
-      props.dispatch(addMessageCreator());
+      props.sendMessage();
     }
   };
   let changeMessage = () => {
     let message = newMessage.current.value;
-    props.dispatch(changeMessageCreator(message));
+    props.changeMessage(message);
   };
 
   return (

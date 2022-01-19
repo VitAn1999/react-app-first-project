@@ -14,21 +14,12 @@ const App = (props) => {
     <Router>
       <div className="wrapper">
         <Header />
-        <Navbar friends={props.usersData.users} />
+        <Navbar store={props.store} />
         <Route path="/profile">
-          <Profile
-            posts={props.postsData.posts}
-            postValue={props.postsData.postValue}
-            dispatch={props.dispatch}
-          />
+          <Profile store={props.store} />
         </Route>
         <Route path="/messages">
-          <Messages
-            users={props.usersData.users}
-            messages={props.messagesData.messages}
-            messageValue={props.messagesData.messageValue}
-            dispatch={props.dispatch}
-          />
+          <Messages store={props.store} />
         </Route>
         <Route path="/music">
           <Music />
