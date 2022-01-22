@@ -1,9 +1,19 @@
 import DialogList from './DialogList';
+import { connect } from 'react-redux';
 
-const DialogListContainer = (props) => {
-  let state = props.store.getState();
-
-  return <DialogList users={state.userData.users} />;
+let mapStateToProps = (state) => {
+  return {
+    users: state.userData.users,
+  };
 };
+
+let mapDispatchToProps = () => {
+  return;
+};
+
+const DialogListContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DialogList);
 
 export default DialogListContainer;

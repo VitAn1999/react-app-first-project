@@ -14,12 +14,12 @@ const App = (props) => {
     <Router>
       <div className="wrapper">
         <Header />
-        <Navbar store={props.store} />
+        <Navbar />
         <Route path="/profile">
-          <Profile store={props.store} />
+          <Profile />
         </Route>
         <Route path="/messages">
-          <Messages store={props.store} />
+          <Messages />
         </Route>
         <Route path="/music">
           <Music />

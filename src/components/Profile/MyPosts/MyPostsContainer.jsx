@@ -1,27 +1,23 @@
 import MyPosts from './MyPosts';
-import React from 'react';
 import {
   addPostCreator,
   changePostCreator,
 } from '../../../store/my-post-reducer';
+import { connect } from 'react-redux';
 
-const MyPostsContainer = (props) => {
-  let state = props.store.getState();
-
-  let addPost = () => {
-    props.store.dispatch(addPostCreator());
+let mapStateToProps = (state) => {
+  return {
+    posts: state.postData.posts,
+    postValue: state.postData.postValue,
   };
-  let changePost = (text) => {
-    props.store.dispatch(changePostCreator(text));
-  };
-  return (
-    <MyPosts
-      posts={state.postData.posts}
-      postValue={state.postData.postValue}
-      addPost={addPost}
-      changePost={changePost}
-    />
-  );
 };
+let mapDispatchToProps = (dispatch) => {
+  return {
+    addPost: () => dispatch(addPostCreator()),
+    changePost: (text) => dispatch(changePostCreator(text)),
+  };
+};
+
+let MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 
 export default MyPostsContainer;
