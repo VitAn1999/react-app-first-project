@@ -14,18 +14,21 @@ let initialState = {
 
 const myPostReducer = (state = initialState, action) => {
   switch (action.type) {
-    case addPost:
+    case addPost: {
       let post = {
         id: state.posts[0]['id'] + 1,
         post: state.postValue,
         count: 0,
       };
-      state.posts.unshift(post);
-      state.postValue = '';
-      return state;
-    case changePost:
-      state.postValue = action.text;
-      return state;
+      return {
+        ...state,
+        posts: [post, ...state.posts],
+        postValue: '',
+      };
+    }
+    case changePost: {
+      return { ...state, postValue: action.text };
+    }
     default:
       return state;
   }

@@ -46,19 +46,22 @@ let initialState = {
 
 const messageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case addMessage:
+    case addMessage: {
       let message = {
         index: state.messages.length + 1,
         message: state.messageValue,
         type: 'content__message_outgoing',
         src: 'https://thumbs.dreamstime.com/b/little-prince-fox-70540233.jpg',
       };
-      state.messages.push(message);
-      state.messageValue = '';
-      return state;
-    case changeMessage:
-      state.messageValue = action.message;
-      return state;
+      return {
+        ...state,
+        messages: [...state.messages, message],
+        messageValue: '',
+      };
+    }
+    case changeMessage: {
+      return { ...state, messageValue: action.message };
+    }
     default:
       return state;
   }

@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
   return {
-    friends: state.userData.users,
+    friends: state.friendsData.friends,
   };
 };
 let mapDispatchToProps = () => {
-  return;
+  return {};
 };
 const FriendsListContainer = connect(
   mapStateToProps,

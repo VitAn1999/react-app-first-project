@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
   return {
-    users: state.userData.users,
+    friends: state.friendsData.friends,
   };
 };
 
 let mapDispatchToProps = () => {
-  return;
+  return {};
 };
 
 const DialogListContainer = connect(

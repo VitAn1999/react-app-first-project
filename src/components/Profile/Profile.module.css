@@ -8,6 +8,6 @@
     'image-wrapper image-wrapper'
     'avatar title'
     'post post';
-  gap: 5px;
+  gap: 10px;
   padding-bottom: 50px;
 }
