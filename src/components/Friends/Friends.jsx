@@ -1,5 +1,6 @@
-import classes from './DialogList.module.css';
-import DialogItem from './DialogItem/DialogItem';
+import React from 'react';
+import FriendsItem from './FriendsItem/FriendsItem';
+import classes from './Friends.module.css';
 const friends = [
   {
     id: 1,
@@ -26,28 +27,28 @@ const friends = [
     status: 'I hate dogs',
   },
 ];
-const DialogList = (props) => {
+
+const Friends = (props) => {
   if (props.friends.length === 0) {
     props.getFriends(friends);
   }
-  console.log(props);
   let friendsItem = props.friends.map((friend) => {
     return (
-      <DialogItem
+      <FriendsItem
         key={friend.id.toString()}
         id={friend.id}
         userName={friend.userName}
         src={friend.src}
+        status={friend.status}
       />
     );
   });
-
   return (
-    <div className={classes.content__dialogs}>
-      <h2 className={classes['content__dialogs-title']}>Dialogs</h2>
-      {friendsItem}
+    <div className={classes.friends}>
+      <h2 className={classes.friends__title}>Friends:</h2>
+      <div className={classes.friends__list}>{friendsItem}</div>
     </div>
   );
 };
 
-export default DialogList;
+export default Friends;

@@ -5,7 +5,7 @@ const ProfileAvatar = (props) => {
     <div
       className={classes.content__photo}
       style={{
-        backgroundImage: props.imgSrc,
+        backgroundImage: props.imgSrc
       }}
     >
       <span className={classes.content__input}>

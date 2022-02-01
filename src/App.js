@@ -1,13 +1,14 @@
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import Navbar from './components/Navbar/Navbar';
 import Messages from './components/Messages/Messages';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Footer from './components/Footer/Footer';
+import FriendsContainer from './components/Friends/FriendsContainer';
 
 const App = (props) => {
   return (
@@ -16,7 +17,7 @@ const App = (props) => {
         <Header />
         <Navbar />
         <Route path="/profile">
-          <Profile />
+          <ProfileContainer />
         </Route>
         <Route path="/messages">
           <Messages />
@@ -29,6 +30,9 @@ const App = (props) => {
         </Route>
         <Route path="/settings">
           <Settings />
+        </Route>
+        <Route path="/friends">
+          <FriendsContainer />
         </Route>
         <Footer />
       </div>

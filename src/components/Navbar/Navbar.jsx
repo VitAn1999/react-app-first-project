@@ -42,13 +42,22 @@ const Navbar = () => {
             Music
           </NavLink>
         </li>
-        <li className={classes['nav-bar__elem_setting']}>
+        <li className={classes['nav-bar__elem']}>
           <NavLink
             to="/settings"
             className={classes['nav-bar__link']}
             activeClassName={classes.active}
           >
             Settings
+          </NavLink>
+        </li>
+        <li className={classes['nav-bar__elem_find']}>
+          <NavLink
+            to="/find"
+            className={classes['nav-bar__link']}
+            activeClassName={classes.active}
+          >
+            Find people
           </NavLink>
         </li>
       </ul>
