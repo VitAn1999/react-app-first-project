@@ -9,8 +9,9 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import Footer from './components/Footer/Footer';
 import FriendsContainer from './components/Friends/FriendsContainer';
+import FindPeopleContainer from './components/FindPeople/FindPeopleContainer';
 
-const App = (props) => {
+const App = () => {
   return (
     <Router>
       <div className="wrapper">
@@ -30,6 +31,9 @@ const App = (props) => {
         </Route>
         <Route path="/settings">
           <Settings />
+        </Route>
+        <Route path="/find_people">
+          <FindPeopleContainer />
         </Route>
         <Route path="/friends">
           <FriendsContainer />

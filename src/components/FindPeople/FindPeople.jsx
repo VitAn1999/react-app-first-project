@@ -1,8 +1,7 @@
-import classes from './Profile.module.css';
-import MyPostsContainer from './MyPosts/MyPostsContainer';
-import ProfileWallpaper from './ProfileWallpaper/ProfileWallpaper';
-import ProfileAvatar from './ProfileAvatar/ProfileAvatar';
-import ProfileTitle from './ProfileTitle/ProfileTitle';
+import React from 'react';
+import UserItem from './UserItem/UserItem';
+import classes from './FindPeople.module.css';
+import * as axios from 'axios';
 
 const users = [
   {
@@ -55,7 +54,7 @@ const users = [
     currentUser: false,
     userName: 'Alex',
     userSurname: 'Koval',
-    src: 'https://static.wikia.nocookie.net/avatar/images/d/df/%D0%90%D0%B2%D0%B0%D1%82%D0%B0%D1%80_%D0%AD%D1%81%D0%BA%D0%B8%D0%B7.jpg/revision/latest/scale-to-width-down/1200?cb=20100705080216&path-prefix=ru',
+    src: 'https://www.meme-arsenal.com/memes/1117f8f4cf4706c9bee5ce8757576967.jpg',
     status: 'Prosto Koval',
     followed: false,
     userInfo: {
@@ -111,32 +110,44 @@ const users = [
     }
   }
 ];
-
-const Profile = (props) => {
-  if (Object.keys(props.currentUser).length === 0) {
-    props.getCurrentUser(users);
+const FindPeople = (props) => {
+  if (props.users.length === 0) {
+    props.getUsers(users);
   }
-  let urlSrc = `url(${props.currentUser.src}})`;
-  try {
-    return (
-      <main className={classes.content}>
-        <ProfileWallpaper imgSrc="url('https://klike.net/uploads/posts/2019-01/1548057229_3.jpg')" />
-        <ProfileAvatar imgSrc={urlSrc} />
-        <ProfileTitle
-          name={props.currentUser.userName}
-          surname={props.currentUser.userSurname}
-          status={props.currentUser.status}
-          city={props.currentUser.city}
-          country={props.currentUser.country}
-          job={props.currentUser.job}
-          email={props.currentUser.email}
-        />
-        <MyPostsContainer />
-      </main>
-    );
-  } catch (e) {
-    console.log(e);
-  }
+  axios
+    .get('https://social-network.samuraijs.com/api/1.0/users')
+    .then((response) => console.log(response.data.items));
+  let count = 0;
+  // eslint-disable-next-line
+  let userItem = props.users.map((user) => {
+    if (user.currentUser === false) {
+      if (count < 4) {
+        count += 1;
+        return (
+          <UserItem
+            key={user.id.toString()}
+            id={user.id}
+            userName={user.userName}
+            userSurname={user.userSurname}
+            src={user.src}
+            status={user.status}
+            followed={user.followed}
+            city={user.userInfo.city}
+            country={user.userInfo.country}
+            job={user.userInfo.job}
+            email={user.userInfo.email}
+            toggleFollowed={props.toggleFollowed}
+          />
+        );
+      }
+    }
+  });
+  return (
+    <div className={classes['users-container']}>
+      <h2 className={classes['users-title']}>Users list:</h2>
+      <div className={classes['users-list']}>{userItem}</div>
+    </div>
+  );
 };
 
-export default Profile;
+export default FindPeople;

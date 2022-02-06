@@ -53,7 +53,7 @@ const Navbar = () => {
         </li>
         <li className={classes['nav-bar__elem_find']}>
           <NavLink
-            to="/find"
+            to="/find_people"
             className={classes['nav-bar__link']}
             activeClassName={classes.active}
           >

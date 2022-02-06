@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './FriendsItem.module.css';
 
 const FriendsItem = (props) => {
-  console.log(props);
   return (
     <div className={classes.friends__item}>
       <img className={classes.item__avatar} src={props.src} alt="avatar" />
